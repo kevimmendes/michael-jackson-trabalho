@@ -1298,15 +1298,18 @@ ul, ol { list-style: none; }
 .quote cite a:hover { color: var(--ember); }
 .sec--ink .quote cite a { color: rgba(255, 255, 255, 0.75); }
 .sec--ink .quote cite a:hover { color: #fff; }
-.quote__nota {
+/* Nota da citação: precisa de mais especificidade que `.quote p`. */
+.quote p.quote__nota {
   margin-top: 0.6rem;
+  font-family: var(--font-body);
   font-size: 0.82rem;
+  line-height: 1.5;
   color: var(--brown-light);
   text-transform: none;
   letter-spacing: 0;
   font-style: italic;
 }
-.sec--ink .quote__nota { color: rgba(255, 255, 255, 0.55); }
+.sec--ink .quote p.quote__nota { color: rgba(255, 255, 255, 0.55); }
 
 /* ---------------------------------------------------------------------
    15. LISTA / TABELA
