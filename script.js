@@ -61,20 +61,30 @@
   /* -----------------------------------------------------------------
      3. ANIMAÇÕES DE ENTRADA
      ----------------------------------------------------------------- */
-  const revealables = $$('.reveal');
-  if ('IntersectionObserver' in window && revealables.length) {
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    revealables.forEach(el => io.observe(el));
-  } else {
-    revealables.forEach(el => el.classList.add('is-visible'));
+  /* Os cartões da discografia, videoclipes e cronologia só existem depois
+     de serem renderizados, por isso a função é chamada outra vez depois de
+     cada renderização. Sem isso ficariam invisíveis (opacity: 0). */
+  const io = 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' })
+    : null;
+
+  function observarReveals() {
+    $$('.reveal:not(.is-visible)').forEach(el => {
+      if (el.dataset.revealObservado) return;
+      if (!io) { el.classList.add('is-visible'); return; }
+      el.dataset.revealObservado = '1';
+      io.observe(el);
+    });
   }
+
+  observarReveals();
 
   /* -----------------------------------------------------------------
      4. SUMÁRIO LATERAL — marca o item ativo
@@ -150,6 +160,7 @@
     const limite = parseInt(gridAlbuns.getAttribute('data-albuns'), 10) || 0;
     const lista = limite ? DADOS.albuns.slice(0, limite) : DADOS.albuns;
     gridAlbuns.innerHTML = lista.map(albumCard).join('');
+    observarReveals();
   }
 
   /* -----------------------------------------------------------------
@@ -175,6 +186,7 @@
     const limite = parseInt(gridVideos.getAttribute('data-videos'), 10) || 0;
     const lista = limite ? DADOS.videos.slice(0, limite) : DADOS.videos;
     gridVideos.innerHTML = lista.map(videoCard).join('');
+    observarReveals();
   }
 
   /* -----------------------------------------------------------------
@@ -243,6 +255,7 @@
         '<p class="timeline__text">' + c.texto + '</p>' +
       '</div>'
     ).join('');
+    observarReveals();
   }
 
   /* -----------------------------------------------------------------
@@ -263,6 +276,7 @@
           '<span class="guiao__resposta"><a href="' + g.href + '">' + g.resposta + ' &rarr;</a></span>' +
         '</div>';
     }).join('');
+    observarReveals();
   }
 
   /* -----------------------------------------------------------------
@@ -313,6 +327,7 @@
           '<div class="card__body"><span class="card__meta">Próximo álbum &rarr;</span><h3 class="card__title">' + seguinte.titulo + '</h3></div>' +
         '</a>' +
       '</div>';
+    observarReveals();
   }
 
   /* -----------------------------------------------------------------

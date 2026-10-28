@@ -696,7 +696,7 @@ ul, ol { list-style: none; }
   color: var(--ember);
 }
 .lens__link::after { content: ' →'; }
-.lens--cultura .lens__num, .lens--cultura::before { color: var(--storm-blue); background-color: var(--storm-blue); }
+.lens--cultura::before { background: var(--storm-blue); }
 .lens--cultura .lens__num { color: var(--storm-blue); }
 .lens--cultura .lens__link { color: var(--storm-blue); }
 .lens--comunidade .lens__num { color: var(--brown-orange); }
@@ -1172,13 +1172,14 @@ ul, ol { list-style: none; }
 }
 .video-card:hover .video-card__play span { transform: scale(1); }
 .video-card .card__media { aspect-ratio: 4 / 5; }
-.video-card__media::after {
+.video-card .card__media::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(9, 9, 10, 0.88) 0%, rgba(9, 9, 10, 0.15) 45%, transparent 70%);
 }
-.video-card__body { position: absolute; inset: auto 0 0 0; z-index: 3; padding: 1.2rem; }
+/* O título fica sobre o cartaz: sem isto o texto branco desaparecia no cartão branco. */
+.video-card .card__body { position: absolute; inset: auto 0 0 0; z-index: 3; padding: 1.2rem; }
 .video-card .card__title { color: #fff; }
 .video-card .card__meta { color: rgba(255, 255, 255, 0.72); }
 
@@ -1255,6 +1256,8 @@ ul, ol { list-style: none; }
   margin-bottom: 0.4rem;
 }
 .sec--ink .stat__num { color: #d98a8a; }
+/* Sobre o fundo vermelho o número herdaria a mesma cor do fundo. */
+.sec--ember .stat__num { color: #fff; }
 .stat__label {
   font-size: 0.78rem;
   font-weight: 500;
