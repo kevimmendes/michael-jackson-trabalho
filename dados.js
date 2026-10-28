@@ -250,7 +250,7 @@ const DADOS = {
     { bloco: 'A Comunidade', pergunta: 'Contribui para comportamentos, ideias ou mentalidades?', resposta: 'C — Comunidade', href: 'comunidade.html#q-comportamentos' },
     { bloco: 'Os 3 conceitos', pergunta: 'Pessoa, Cultura e Comunidade: como se relacionam?', resposta: 'D — O modelo relacional', href: 'comunidade.html#q-tres-conceitos' },
     { bloco: 'Os 3 conceitos', pergunta: 'Como a pessoa é influenciada pela cultura e pode influenciar a comunidade?', resposta: 'D — O modelo relacional', href: 'comunidade.html#q-influencia-influencia' },
-    { bloco: 'O método', pergunta: 'Não basta apresentar a biografia: como é que o trabalho estabelece relações?', resposta: 'Introdução + caixas «Ligação»', href: 'index.html#metodo' },
+    { bloco: 'O método', pergunta: 'Como é que o trabalho liga a biografia à cultura e à comunidade?', resposta: 'Introdução + caixas «Ligação»', href: 'index.html#metodo' },
     { bloco: 'O Impacto', pergunta: 'Qual foi o impacto desta personalidade?', resposta: 'E — Legado', href: 'legado.html#q-impacto' },
     { bloco: 'O Impacto', pergunta: 'O que deixou para as próximas gerações?', resposta: 'E — Legado', href: 'legado.html#q-geracoes' },
     { bloco: 'O Impacto', pergunta: 'Continua a influenciar pessoas atualmente?', resposta: 'E — Legado', href: 'legado.html#q-atualmente' },
