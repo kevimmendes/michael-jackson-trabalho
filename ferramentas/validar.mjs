@@ -66,7 +66,7 @@ for (const pag of paginas) {
 
   // 3. imagens existentes
   for (const img of html.matchAll(/<img[^>]+src="([^"]+)"/g)) {
-    const src = img[1];
+    const src = img[1].split('?')[0];
     if (src.startsWith('http') || src.startsWith('data:')) continue;
     try {
       await readFile(join(RAIZ, src));
@@ -77,7 +77,8 @@ for (const pag of paginas) {
   }
 
   // 4. recursos referenciados
-  for (const src of [...html.matchAll(/<(?:script|link)[^>]+(?:src|href)="([^"]+)"/g)].map(x => x[1])) {
+  for (const ref of [...html.matchAll(/<(?:script|link)[^>]+(?:src|href)="([^"]+)"/g)].map(x => x[1])) {
+    const src = ref.split('?')[0];
     if (src.startsWith('http') || src.startsWith('//') || src.startsWith('data:')) continue;
     try {
       await readFile(join(RAIZ, src));

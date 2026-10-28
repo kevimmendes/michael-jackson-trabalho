@@ -13,6 +13,10 @@
   const $  = (sel, ctx) => (ctx || document).querySelector(sel);
   const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
 
+  /* Marca que o script arrancou: a salvaguarda no HTML usa isto para saber
+     se deve revelar o conteúdo em vez de esperar pelas animações. */
+  document.documentElement.setAttribute('data-js', 'on');
+
   /* -----------------------------------------------------------------
      1. CABEÇALHO: estado fixo + barra de progresso de leitura
      ----------------------------------------------------------------- */
