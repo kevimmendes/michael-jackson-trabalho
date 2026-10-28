@@ -194,6 +194,7 @@
     modal.classList.add('is-open');
     document.body.classList.add('is-locked');
     modal.setAttribute('aria-hidden', 'false');
+    document.dispatchEvent(new Event('player:stop'));
   }
 
   function fecharVideo() {
@@ -344,7 +345,175 @@
   });
 
   /* -----------------------------------------------------------------
-     14. ARRANQUE
+     14. LEITOR DE PRÉVIAS (30 s, Apple Music / iTunes)
+     ----------------------------------------------------------------- */
+  const playerEl = $('[data-player]');
+  if (playerEl) {
+    const FAIXAS = [
+      { titulo: 'Billie Jean', album: 'Thriller', ano: '1982', capa: 'assets/albuns/album-cover_thriller-640x640.jpg' },
+      { titulo: 'Beat It', album: 'Thriller', ano: '1982', capa: 'assets/albuns/album-cover_thriller-640x640.jpg' },
+      { titulo: 'Smooth Criminal', album: 'Bad', ano: '1987', capa: 'assets/albuns/album-bad-640x640.png' },
+      { titulo: 'Black or White', album: 'Dangerous', ano: '1991', capa: 'assets/albuns/album-cover_dangerous-640x640.jpg' },
+      { titulo: 'Earth Song', album: 'HIStory', ano: '1995', capa: 'assets/albuns/album-cover_history-640x640.jpg' },
+      { titulo: 'Don’t Stop ’Til You Get Enough', album: 'Off the Wall', ano: '1979', capa: 'assets/albuns/album-cover_offthewall-640x640.jpg' }
+    ];
+
+    const audio = new Audio();
+    audio.preload = 'none';
+
+    const elCapa = $('[data-player-cover]', playerEl);
+    const elTitulo = $('[data-player-title]', playerEl);
+    const elMeta = $('[data-player-meta]', playerEl);
+    const elBar = $('[data-player-bar]', playerEl);
+    const elFill = $('[data-player-fill]', playerEl);
+    const elAtual = $('[data-player-current]', playerEl);
+    const elNota = $('[data-player-note]', playerEl);
+    const elLista = $('[data-player-list]', playerEl);
+    const btnPlay = $('[data-player-play]', playerEl);
+    const btnPrev = $('[data-player-prev]', playerEl);
+    const btnNext = $('[data-player-next]', playerEl);
+
+    const cache = new Map();
+    let atual = 0;
+    let pedido = 0;
+
+    function relogio(seg) {
+      const s = Math.max(0, Math.floor(seg || 0));
+      return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+    }
+
+    function pintar() {
+      const f = FAIXAS[atual];
+      elTitulo.textContent = f.titulo;
+      elMeta.textContent = f.album + ' · ' + f.ano;
+      elCapa.src = f.capa;
+      elCapa.alt = 'Capa de ' + f.album;
+      elAtual.textContent = relogio(audio.currentTime);
+      elFill.style.width = (audio.duration ? (audio.currentTime / audio.duration) * 100 : 0) + '%';
+      elBar.setAttribute('aria-valuenow', String(Math.round(audio.currentTime)));
+      playerEl.classList.toggle('is-playing', !audio.paused);
+      btnPlay.setAttribute('aria-label', audio.paused ? 'Reproduzir prévia' : 'Pausar prévia');
+      $$('.player__track', playerEl).forEach((b, i) => b.classList.toggle('is-active', i === atual));
+    }
+
+    function normalizar(texto) {
+      return texto
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, ' ')
+        .trim();
+    }
+
+    /* A API de pesquisa do iTunes permite CORS e devolve prévias de 30 s. */
+    function previa(i) {
+      if (cache.has(i)) return Promise.resolve(cache.get(i));
+      const titulo = FAIXAS[i].titulo;
+      const consulta = encodeURIComponent('Michael Jackson ' + titulo);
+      const url = 'https://itunes.apple.com/search?term=' + consulta + '&entity=song&limit=10';
+
+      return fetch(url)
+        .then(r => (r.ok ? r.json() : Promise.reject(new Error('falha de rede'))))
+        .then(dados => {
+          const resultados = (dados.results || []).filter(t =>
+            t.previewUrl && /michael jackson/i.test(t.artistName || '')
+          );
+          const alvo = normalizar(titulo);
+          const faixa = resultados.find(t => normalizar(t.trackName || '') === alvo) || resultados[0];
+          if (!faixa) throw new Error('sem prévia');
+          cache.set(i, faixa.previewUrl);
+          return faixa.previewUrl;
+        });
+    }
+
+    function parar() {
+      pedido++;
+      audio.pause();
+      audio.removeAttribute('src');
+      audio.load();
+      elNota.textContent = 'Prévia de 30 segundos · Apple Music';
+      pintar();
+    }
+
+    function tocar(i) {
+      atual = (i + FAIXAS.length) % FAIXAS.length;
+      const marca = ++pedido;
+      audio.pause();
+      audio.removeAttribute('src');
+      audio.load();
+      elNota.textContent = 'A carregar prévia…';
+      pintar();
+
+      previa(atual).then(url => {
+        if (marca !== pedido) return;
+        audio.src = url;
+        return audio.play();
+      }).then(() => {
+        if (marca !== pedido) return;
+        elNota.textContent = 'Prévia de 30 segundos · Apple Music';
+        pintar();
+      }).catch(() => {
+        if (marca !== pedido) return;
+        elNota.textContent = 'Prévia indisponível. Tenta outra faixa.';
+        pintar();
+      });
+    }
+
+    elLista.innerHTML = FAIXAS.map((f, i) =>
+      '<li>' +
+        '<button class="player__track" type="button" data-track="' + i + '" aria-label="Tocar prévia de ' + f.titulo + '">' +
+          '<span class="player__num">' + String(i + 1).padStart(2, '0') + '</span>' +
+          '<span class="player__name">' + f.titulo + '</span>' +
+          '<span class="player__year">' + f.ano + '</span>' +
+        '</button>' +
+      '</li>'
+    ).join('');
+
+    elLista.addEventListener('click', e => {
+      const b = e.target.closest('[data-track]');
+      if (b) tocar(parseInt(b.getAttribute('data-track'), 10));
+    });
+
+    btnPlay.addEventListener('click', () => {
+      if (!audio.getAttribute('src')) { tocar(atual); return; }
+      if (audio.paused) audio.play().catch(() => tocar(atual));
+      else audio.pause();
+    });
+
+    btnPrev.addEventListener('click', () => tocar(atual - 1));
+    btnNext.addEventListener('click', () => tocar(atual + 1));
+
+    elBar.addEventListener('click', e => {
+      if (!audio.duration) return;
+      const r = elBar.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+      audio.currentTime = p * audio.duration;
+      pintar();
+    });
+
+    elBar.addEventListener('keydown', e => {
+      if (!audio.duration) return;
+      if (e.key === 'ArrowRight') { audio.currentTime = Math.min(audio.duration, audio.currentTime + 3); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { audio.currentTime = Math.max(0, audio.currentTime - 3); e.preventDefault(); }
+    });
+
+    audio.addEventListener('timeupdate', pintar);
+    audio.addEventListener('play', pintar);
+    audio.addEventListener('pause', pintar);
+    audio.addEventListener('ended', () => tocar(atual + 1));
+    audio.addEventListener('error', () => {
+      if (!audio.getAttribute('src')) return;
+      elNota.textContent = 'Prévia indisponível. Tenta outra faixa.';
+      pintar();
+    });
+
+    document.addEventListener('player:stop', parar);
+
+    pintar();
+  }
+
+  /* -----------------------------------------------------------------
+     15. ARRANQUE
      ----------------------------------------------------------------- */
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();

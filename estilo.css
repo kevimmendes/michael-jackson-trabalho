@@ -1719,6 +1719,161 @@ ul, ol { list-style: none; }
 }
 
 /* ---------------------------------------------------------------------
+   23b. LEITOR DE PRÉVIAS
+   --------------------------------------------------------------------- */
+.player {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr) 300px;
+  gap: clamp(1.5rem, 3vw, 2.6rem);
+  align-items: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  background: var(--mute-black);
+  color: #fff;
+}
+.player__deck {
+  position: relative;
+  width: 100%;
+  max-width: 190px;
+  aspect-ratio: 1;
+  justify-self: center;
+}
+.player__vinyl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: girar 7s linear infinite;
+  animation-play-state: paused;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.55));
+}
+.player.is-playing .player__vinyl { animation-play-state: running; }
+.player__cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 62%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 5px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+@keyframes girar { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .player__vinyl { animation: none; }
+}
+
+.player__title {
+  margin: 0.35rem 0 0.2rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.player__meta {
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown-light);
+}
+.player__bar {
+  position: relative;
+  height: 4px;
+  margin: 1.2rem 0 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  cursor: pointer;
+}
+.player__bar:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
+.player__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ember);
+  transition: width 0.2s linear;
+}
+.player__times {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brown-light);
+}
+.player__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+}
+.player__btn {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.player__btn:hover { background: rgba(255, 255, 255, 0.1); }
+.player__btn--play {
+  width: 54px;
+  height: 54px;
+  border-color: var(--ember);
+  background: var(--ember);
+}
+.player__btn--play:hover { background: var(--red); border-color: var(--red); }
+.player__icon--pause { display: none; }
+.player.is-playing .player__icon--play { display: none; }
+.player.is-playing .player__icon--pause { display: block; }
+
+.player__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  list-style: none;
+}
+.player__track {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 0.5rem 0.2rem;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: none;
+  color: var(--brown-light);
+  font-size: 0.86rem;
+  text-align: left;
+  cursor: pointer;
+}
+.player__track:hover { color: #fff; }
+.player__track.is-active { color: #fff; }
+.player__track.is-active .player__num { color: var(--ember); }
+.player__num {
+  width: 1.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.35);
+}
+.player__name { flex: 1; }
+.player__year { font-size: 0.7rem; letter-spacing: 0.08em; }
+
+@media (max-width: 900px) {
+  .player { grid-template-columns: 1fr; }
+}
+
+/* ---------------------------------------------------------------------
    24. IMPRESSÃO / EXPORTAÇÃO PARA PDF
    --------------------------------------------------------------------- */
 @media print {
@@ -1741,7 +1896,8 @@ ul, ol { list-style: none; }
   .accordion__panel { height: auto !important; }
   .accordion__panel-inner { display: block !important; }
   .qa { border-top: 1px solid #999; }
-  .figure, .photo-band, .strip, .resumo { break-inside: avoid; page-break-inside: avoid; }
+  .figure, .photo-band, .strip, .resumo, .player { break-inside: avoid; page-break-inside: avoid; }
+  .player { display: none !important; }
   .photo-band img { height: 60mm; }
   a { text-decoration: none; color: #000; }
   .btn { display: none; }
