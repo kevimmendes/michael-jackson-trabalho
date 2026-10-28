@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discografia — Michael Jackson | Trabalho de Grupo</title>
+<meta name="description" content="A discografia completa de Michael Jackson: catorze álbuns com as respetivas tracklists e uma leitura do que cada um acrescenta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="header">
+  <div class="header__inner">
+    <a class="logo" href="index.html" aria-label="Voltar ao início">
+      <span class="logo__mark" aria-hidden="true">MJ</span>
+      <span class="logo__text">Michael Jackson<small>Pessoa · Cultura · Comunidade</small></span>
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="nav__link" href="index.html">Início</a>
+      <a class="nav__link" href="biografia.html">A Pessoa</a>
+      <a class="nav__link" href="cultura.html">A Cultura</a>
+      <a class="nav__link" href="comunidade.html">A Comunidade</a>
+      <a class="nav__link" href="legado.html">O Impacto</a>
+      <a class="nav__link" href="conclusao.html">Conclusão</a>
+      <a class="nav__link" href="guiao.html">Guião</a>
+      <a class="nav__cta" href="albuns.html">Discografia</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav__panel" id="menu-mobile">
+  <a href="index.html">Início</a>
+  <a href="biografia.html">A Pessoa</a>
+  <a href="cultura.html">A Cultura</a>
+  <a href="comunidade.html">A Comunidade</a>
+  <a href="legado.html">O Impacto</a>
+  <a href="conclusao.html">Conclusão</a>
+  <a href="guiao.html">Guião do Trabalho</a>
+  <a href="albuns.html">Discografia</a>
+  <a href="videos.html">Videoclipes</a>
+</div>
+
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <span class="eyebrow eyebrow--light">Arquivo &middot; Escuta</span>
+    <h1 class="h1">Discografia</h1>
+    <p class="page-hero__lead">
+      Catorze álbuns, do <em>Off the Wall</em> (1979) às compilações póstumas.
+      Cada capa abre a ficha completa com a tracklist.
+    </p>
+  </div>
+</section>
+
+<main id="conteudo">
+<section class="sec">
+  <div class="container">
+    <div class="grid grid--sidebar">
+      <div>
+        <span class="eyebrow">Arquivo · Escuta</span>
+        <h2 class="h2" style="margin-bottom:1.4rem">A obra como<br>documento</h2>
+        <div class="prose lead" style="max-width:none">
+          <p>
+            A discografia não é um apêndice biográfico: é o registo material das
+            transformações. Cada álbum marca uma mudança de relação com a própria
+            música — e, portanto, com a comunidade que a ouve.
+          </p>
+        </div>
+
+        <div class="figure figure--side reveal">
+          <img class="figure__img" src="assets/albuns/album-cover_thriller-640x640.jpg" alt="Capa do álbum Thriller" width="640" height="640" loading="lazy">
+          <div>
+            <p class="figure__cap">
+              <strong>Thriller (1982)</strong> — o álbum mais vendido de sempre e o
+              momento em que o videoclipe deixou de ser publicidade e passou a ser
+              obra. A capa, pintada por Richard Amsel, mostra Michael Jackson como
+              personagem de filme de terror.
+            </p>
+            <p class="figure__cap" style="margin-top:.8rem">
+              <strong>Off the Wall (1979)</strong> — o disco da transição: a Motown
+              organiza a saída, a Epic acolhe, e Quincy Jones transforma o R&amp;B de
+              estúdio em pop internacional.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="toc">
+        <div class="toc__title">Neste arquivo</div>
+        <nav class="toc__list">
+          <a href="#albuns">Todos os álbuns</a>
+          <a href="videos.html">Videoclipes</a>
+          <a href="index.html#disco">Ouça 8 álbuns na página inicial</a>
+        </nav>
+        <div style="margin-top:2rem">
+          <a class="btn btn--ink" href="index.html#disco" style="width:100%;justify-content:center"><span>Voltar ao início</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GRELHA DE ÁLBUNS ========== -->
+<section class="sec sec--paper" id="albuns">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Catorze álbuns</span>
+      <h2 class="h2">Escutar a obra completa</h2>
+      <p class="lead">
+        Cada capa abre a ficha do álbum com a respetiva tracklist. Utilize os
+        filtros para separar o que é estúdio do que foi publicado depois da morte de
+        Michael Jackson.
+      </p>
+    </div>
+
+    <div class="filters reveal" data-filtro="#albuns-grelha">
+      <button class="filters__btn is-active" type="button" data-filtro-btn="todos">Todos</button>
+      <button class="filters__btn" type="button" data-filtro-btn="estudio">Estúdio</button>
+      <button class="filters__btn" type="button" data-filtro-btn="compilacao">Compilações</button>
+      <button class="filters__btn" type="button" data-filtro-btn="posthumo">Póstumos</button>
+    </div>
+
+    <div class="grid grid--4" id="albuns-grelha" data-albuns></div>
+  </div>
+</section>
+
+<!-- ========== LEITURA DA DISCOGRAFIA ========== -->
+<section class="sec">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Como ler</span>
+      <h2 class="h2">Três tempos<br>na mesma carreira</h2>
+      <p class="lead">
+        Os catorze álbuns não são uma lista: são três tempos. É a leitura que
+        propomos ao trabalho.
+      </p>
+    </div>
+
+    <div class="grid grid--3" style="gap:clamp(1.5rem,3vw,2.5rem)">
+      <div class="reveal">
+        <h3 class="h4" style="margin-bottom:.8rem">1979 — 1987 · A construção</h3>
+        <p class="prose">
+          <em>Off the Wall</em>, <em>Thriller</em> e <em>Bad</em> são o momento em que
+          a carreira deixa de ser uma promessa e passa a ser um sistema: produção
+          controlada, imagem controlada, álbum como produto. É aqui que o moonwalk
+          e o videoclipe-cinema nascem.
+        </p>
+      </div>
+      <div class="reveal" data-delay="1">
+        <h3 class="h4" style="margin-bottom:.8rem">1991 — 2001 · A afirmação</h3>
+        <p class="prose">
+          <em>Dangerous</em>, <em>HIStory</em>, <em>Blood on the Dance Floor</em> e
+          <em>Invincible</em> coincidem com o período das causas sociais e com uma
+          escrita muito mais pessoal. É a fase em que a crítica o trata como autor e
+          não como produto.
+        </p>
+      </div>
+      <div class="reveal" data-delay="2">
+        <h3 class="h4" style="margin-bottom:.8rem">2003 — 2017 · O arquivo</h3>
+        <p class="prose">
+          Compilações, o filme-concerto <em>This Is It</em> (2009) e <em>Xscape</em>. A obra deixa de ser nova e
+          passa a ser gerida: o catálogo torna-se herança e a herança torna-se
+          indústria — com tudo o que isso implica, incluindo o debate sobre a
+          inteligência artificial.
+        </p>
+      </div>
+    </div>
+
+    <div class="photo-band reveal" style="margin-top:clamp(2.5rem,5vw,4rem)">
+      <img src="assets/fotos/mj-victory-tour.jpg" alt="Michael Jackson durante a digressão Victory Tour, em 1984" loading="lazy">
+      <div class="photo-band__overlay">
+        <span class="photo-band__tag">1984 · Victory Tour</span>
+        <h3 class="photo-band__title">Quando o concerto passou a ser o produto</h3>
+        <p class="photo-band__text">
+          Michael Jackson durante a digressão Victory Tour, a maior da história até
+          então. É aqui que o palco deixa de ser o lugar onde se canta a música e
+          passa a ser um produto com entrada.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;text-align:center" class="reveal">
+      <a class="btn btn--solid" href="videos.html"><span>Ver os videoclipes</span><span class="btn__arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <h2 class="footer__title">Michael Jackson</h2>
+        <p class="footer__text">
+          Trabalho de grupo sobre uma personalidade que só se explica quando se ligam
+          a pessoa, a cultura e a comunidade. Feito com material público e de arquivo.
+        </p>
+        <div class="socials" style="margin-top:1.5rem">
+          <a href="guiao.html" aria-label="Guião do trabalho">G</a>
+          <a href="albuns.html" aria-label="Discografia">&sung;</a>
+          <a href="videos.html" aria-label="Videoclipes">&#9654;</a>
+        </div>
+      </div>
+      <div>
+        <h2 class="footer__title">O trabalho</h2>
+        <ul class="footer__list">
+          <li><a href="biografia.html">A Pessoa</a></li>
+          <li><a href="cultura.html">A Cultura</a></li>
+          <li><a href="comunidade.html">A Comunidade</a></li>
+          <li><a href="legado.html">O Impacto</a></li>
+          <li><a href="conclusao.html">Conclusão</a></li>
+          <li><a href="guiao.html">Guião completo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer__title">Arquivo</h2>
+        <ul class="footer__list">
+          <li><a href="albuns.html">Discografia (14 álbuns)</a></li>
+          <li><a href="videos.html">Videoclipes (33)</a></li>
+          <li><a href="album.html?id=thriller">Thriller &mdash; tracklist</a></li>
+          <li><a href="album.html?id=invincible">Invincible &mdash; tracklist</a></li>
+        </ul>
+        <div class="newsletter" style="margin-top:1.5rem">
+          <div class="newsletter__title">Fique a par</div>
+          <p class="newsletter__text">Receba as novidades do trabalho.</p>
+          <form class="newsletter__form" novalidate>
+            <input class="newsletter__input" type="email" placeholder="o.seu@email.pt" aria-label="Endereço de email">
+            <button class="btn btn--solid" type="submit"><span>Subscrever</span></button>
+          </form>
+          <p class="newsletter__note">Demonstração local &mdash; não são enviados dados.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 &mdash; Trabalho de grupo. Conteúdo com fins educativos.</span>
+      <span>Imagens: material de arquivo público &middot; Catálogo: michaeljackson.com</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal-video" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Reprodutor de vídeo">
+  <div class="modal__box">
+    <button class="modal__close" type="button" data-close-modal aria-label="Fechar">&times;</button>
+    <div class="modal__frame" id="modal-video-frame"></div>
+    <div class="modal__caption">
+      <strong id="modal-video-title"></strong>
+      <span id="modal-video-date"></span>
+    </div>
+  </div>
+</div>
+
+<script src="dados.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

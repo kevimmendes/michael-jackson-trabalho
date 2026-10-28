@@ -1,0 +1,70 @@
+<section class="sec">
+  <div class="container">
+    <div class="grid grid--sidebar">
+      <div>
+        <span class="eyebrow">Arquivo · Escuta</span>
+        <h2 class="h2" style="margin-bottom:1.4rem">A obra como<br>documento</h2>
+        <div class="prose lead" style="max-width:none">
+          <p>
+            A discografia não é um apêndice biográfico: é o registo material das
+            transformações. Cada álbum marca uma mudança de relação com a própria
+            música — e, portanto, com a comunidade que a ouve.
+          </p>
+        </div>
+
+        <div class="figure figure--side reveal">
+          <img class="figure__img" src="assets/albuns/album-cover_thriller-640x640.jpg" alt="Capa do álbum Thriller" width="640" height="640" loading="lazy">
+          <div>
+            <p class="figure__cap">
+              <strong>Thriller (1982)</strong> — o álbum mais vendido de sempre e o
+              momento em que o videoclipe deixou de ser publicidade e passou a ser
+              obra. A capa, pintada por Richard Amsel, mostra Michael Jackson como
+              personagem de filme de terror.
+            </p>
+            <p class="figure__cap" style="margin-top:.8rem">
+              <strong>Off the Wall (1979)</strong> — o disco da transição: a Motown
+              organiza a saída, a Epic acolhe, e Quincy Jones transforma o R&amp;B de
+              estúdio em pop internacional.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="toc">
+        <div class="toc__title">Neste arquivo</div>
+        <nav class="toc__list">
+          <a href="#albuns">Todos os álbuns</a>
+          <a href="videos.html">Videoclipes</a>
+          <a href="index.html#disco">Ouça 8 álbuns na página inicial</a>
+        </nav>
+        <div style="margin-top:2rem">
+          <a class="btn btn--ink" href="index.html#disco" style="width:100%;justify-content:center"><span>Voltar ao início</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GRELHA DE ÁLBUNS ========== -->
+<section class="sec sec--paper" id="albuns">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Catorze álbuns</span>
+      <h2 class="h2">Escutar a obra completa</h2>
+      <p class="lead">
+        Cada capa abre a ficha do álbum com a respetiva tracklist. Utilize os
+        filtros para separar o que é estúdio do que foi publicado depois da morte de
+        Michael Jackson.
+      </p>
+    </div>
+
+    <div class="filters reveal" data-filtro="#albuns-grelha">
+      <button class="filters__btn is-active" type="button" data-filtro-btn="todos">Todos</button>
+      <button class="filters__btn" type="button" data-filtro-btn="estudio">Estúdio</button>
+      <button class="filters__btn" type="button" data-filtro-btn="compilacao">Compilações</button>
+      <button class="filters__btn" type="button" data-filtro-btn="posthumo">Póstumos</button>
+    </div>
+
+    <div class="grid grid--4" id="albuns-grelha" data-albuns></div>
+  </div>
+</section>

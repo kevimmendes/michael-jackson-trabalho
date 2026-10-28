@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO}}</title>
+<meta name="description" content="{{DESCRICAO}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="header">
+  <div class="header__inner">
+    <a class="logo" href="index.html" aria-label="Voltar ao início">
+      <span class="logo__mark" aria-hidden="true">MJ</span>
+      <span class="logo__text">Michael Jackson<small>Pessoa · Cultura · Comunidade</small></span>
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="nav__link" href="index.html"{{ATUAL_INICIO}}>Início</a>
+      <a class="nav__link" href="biografia.html"{{ATUAL_PESSOA}}>A Pessoa</a>
+      <a class="nav__link" href="cultura.html"{{ATUAL_CULTURA}}>A Cultura</a>
+      <a class="nav__link" href="comunidade.html"{{ATUAL_COMUNIDADE}}>A Comunidade</a>
+      <a class="nav__link" href="legado.html"{{ATUAL_LEGADO}}>O Impacto</a>
+      <a class="nav__link" href="conclusao.html"{{ATUAL_CONCLUSAO}}>Conclusão</a>
+      <a class="nav__link" href="guiao.html"{{ATUAL_GUIAO}}>Guião</a>
+      <a class="nav__cta" href="albuns.html">Discografia</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav__panel" id="menu-mobile">
+  <a href="index.html">Início</a>
+  <a href="biografia.html">A Pessoa</a>
+  <a href="cultura.html">A Cultura</a>
+  <a href="comunidade.html">A Comunidade</a>
+  <a href="legado.html">O Impacto</a>
+  <a href="conclusao.html">Conclusão</a>
+  <a href="guiao.html">Guião do Trabalho</a>
+  <a href="albuns.html">Discografia</a>
+  <a href="videos.html">Videoclipes</a>
+</div>
+
+{{HERO}}
+
+<main id="conteudo">
+{{CONTEUDO}}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <h2 class="footer__title">Michael Jackson</h2>
+        <p class="footer__text">
+          Trabalho de grupo sobre uma personalidade que só se explica quando se ligam
+          a pessoa, a cultura e a comunidade. Feito com material público e de arquivo.
+        </p>
+        <div class="socials" style="margin-top:1.5rem">
+          <a href="guiao.html" aria-label="Guião do trabalho">G</a>
+          <a href="albuns.html" aria-label="Discografia">&sung;</a>
+          <a href="videos.html" aria-label="Videoclipes">&#9654;</a>
+        </div>
+      </div>
+      <div>
+        <h2 class="footer__title">O trabalho</h2>
+        <ul class="footer__list">
+          <li><a href="biografia.html">A Pessoa</a></li>
+          <li><a href="cultura.html">A Cultura</a></li>
+          <li><a href="comunidade.html">A Comunidade</a></li>
+          <li><a href="legado.html">O Impacto</a></li>
+          <li><a href="conclusao.html">Conclusão</a></li>
+          <li><a href="guiao.html">Guião completo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer__title">Arquivo</h2>
+        <ul class="footer__list">
+          <li><a href="albuns.html">Discografia (14 álbuns)</a></li>
+          <li><a href="videos.html">Videoclipes (33)</a></li>
+          <li><a href="album.html?id=thriller">Thriller &mdash; tracklist</a></li>
+          <li><a href="album.html?id=invincible">Invincible &mdash; tracklist</a></li>
+        </ul>
+        <div class="newsletter" style="margin-top:1.5rem">
+          <div class="newsletter__title">Fique a par</div>
+          <p class="newsletter__text">Receba as novidades do trabalho.</p>
+          <form class="newsletter__form" novalidate>
+            <input class="newsletter__input" type="email" placeholder="o.seu@email.pt" aria-label="Endereço de email">
+            <button class="btn btn--solid" type="submit"><span>Subscrever</span></button>
+          </form>
+          <p class="newsletter__note">Demonstração local &mdash; não são enviados dados.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 &mdash; Trabalho de grupo. Conteúdo com fins educativos.</span>
+      <span>Imagens: material de arquivo público &middot; Catálogo: michaeljackson.com</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal-video" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Reprodutor de vídeo">
+  <div class="modal__box">
+    <button class="modal__close" type="button" data-close-modal aria-label="Fechar">&times;</button>
+    <div class="modal__frame" id="modal-video-frame"></div>
+    <div class="modal__caption">
+      <strong id="modal-video-title"></strong>
+      <span id="modal-video-date"></span>
+    </div>
+  </div>
+</div>
+
+<script src="dados.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
