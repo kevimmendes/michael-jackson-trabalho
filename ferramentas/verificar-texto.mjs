@@ -188,16 +188,25 @@ for await (const caminho of ficheiros(pasta)) {
   const texto = await readFile(caminho, 'utf8');
   const linhas = texto.split('\n');
   const ehHtml = caminho.endsWith('.html');
+  /* As citações ficam no original inglês, por isso não contam como
+     «palavras inglesas dentro de texto português». */
+  let dentroCitacao = false;
 
   linhas.forEach((linha, i) => {
     const limpo = limpar(linha);
+    const abreCitacao = /<blockquote class="quote/.test(linha);
+    const fechaCitacao = /<\/blockquote>/.test(linha);
+    const naCitacao = dentroCitacao || abreCitacao;
+    if (abreCitacao) dentroCitacao = true;
+    if (fechaCitacao) dentroCitacao = false;
+
     const naoLatino = limpo.match(RE_NAO_LATINO);
     if (naoLatino) {
       problemas.push({ ficheiro: caminho, linha: i + 1, tipo: 'nao-latino', texto: naoLatino.join(' '), linhaInteira: linha.trim() });
       return;
     }
 
-    if (!ehHtml) return;
+    if (!ehHtml || naCitacao) return;
 
     const palavras = limpo.match(/[A-Za-zÀ-ÿ']+/g) || [];
     const suspeitas = [];
