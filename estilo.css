@@ -1887,8 +1887,14 @@ ul, ol { list-style: none; }
 .player__name { flex: 1; }
 .player__year { font-size: 0.7rem; letter-spacing: 0.08em; }
 
+@media (max-width: 1200px) {
+  .player { grid-template-columns: 170px minmax(0, 1fr); }
+  .player__list { grid-column: 1 / -1; }
+}
+
 @media (max-width: 900px) {
   .player { grid-template-columns: 1fr; }
+  .player__list { grid-column: auto; }
 }
 
 /* ---------------------------------------------------------------------
