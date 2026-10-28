@@ -144,7 +144,6 @@
         '<div class="card__media">' +
           '<span class="album-card__year">' + a.ano + '</span>' +
           '<img src="' + a.capa + '" alt="Capa do álbum ' + a.titulo + '" loading="lazy" width="640" height="640">' +
-          '<img class="album-card__vinyl" src="assets/ui/album-vinyl.png" alt="" aria-hidden="true" loading="lazy">' +
         '</div>' +
         '<div class="card__body">' +
           '<span class="card__meta">' + a.data + '</span>' +
