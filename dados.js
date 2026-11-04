@@ -123,7 +123,7 @@ const DADOS = {
       ano: 2010,
       capa: 'assets/albuns/album-cover_michael-640x640.jpg',
       resumo: 'Faixas inéditas recuperadas das sessões mais remotas — o catálogo tratado como arquivo vivo.',
-      tracks: ['Hold My Hand', 'Hollywood Tonight', '(I Like) The Way You Love Me', 'Best of Joy', 'Another Day', 'Behind The Mask', 'Much Too Soon']
+      tracks: ['Hold My Hand', 'Hollywood Tonight', 'Keep Your Head Up', '(I Like) The Way You Love Me', 'Monster', 'Best of Joy', 'Breaking News', 'Another Day', 'Behind The Mask', 'Much Too Soon']
     },
     {
       id: 'immortal',
@@ -202,10 +202,10 @@ const DADOS = {
   cronologia: [
     { ano: '1958', titulo: 'Nasce em Gary, Indiana', texto: 'A 29 de agosto, no auge da indústria siderúrgica do Midwest. É o oitavo de dez filhos de Katherine e Joseph Jackson.' },
     { ano: '1964', titulo: 'Nasce o Jackson 5', texto: 'Formados por Jackie, Tito, Jermaine, Marlon e Michael. A Motown transforma cinco irmãos de Gary num fenómeno nacional.' },
-    { ano: '1972', titulo: 'Primeiro êxito a solo', texto: '"Got to Be There", com 13 anos, abre a porta à carreira individual dentro do catálogo da Motown.' },
+    { ano: '1971', titulo: 'Primeiro êxito a solo', texto: '"Got to Be There", lançado em outubro de 1971, com 13 anos, abre a porta à carreira individual dentro do catálogo da Motown.' },
     { ano: '1979', titulo: 'Off the Wall', texto: 'Primeiro álbum na Epic, depois de deixar a Motown em 1975. Com Quincy Jones descobre o seu próprio som: funky, elegante, preciso.' },
     { ano: '1982', titulo: 'Thriller', texto: 'O álbum mais vendido de sempre, com Eddie Van Halen em "Beat It" e Paul McCartney em "The Girl Is Mine".' },
-    { ano: '1983', titulo: 'O moonwalk no Motown 25', texto: 'A 16 de março, nos 25 anos da Motown, o passo que viria a ser marca registada entra em direto para o público.' },
+    { ano: '1983', titulo: 'O moonwalk no Motown 25', texto: 'A 25 de março de 1983, nos 25 anos da Motown (emitido em maio), o passo que viria a ser marca registada entra em direto para o público.' },
     { ano: '1984', titulo: 'Oito Grammys numa noite', texto: 'A 28 de fevereiro recebe oito Grammy, incluindo o de Álbum do Ano por Thriller — um recorde para um artista na altura.' },
     { ano: '1985', titulo: '"We Are the World"', texto: 'Co-escreve com Lionel Richie o tema de USA for Africa; Quincy Jones produz. A vertente humanitária entra no discurso público.' },
     { ano: '1987', titulo: 'Bad e o corpo como instrumento', texto: '"Smooth Criminal" fixa o "leaning"; o álbum dá cinco canções seguidas no primeiro lugar nos EUA.' },
@@ -213,7 +213,7 @@ const DADOS = {
     { ano: '1991', titulo: 'Dangerous e a Sony', texto: 'Em março anuncia um novo contrato com a Sony, um dos mais valiosos da época. O álbum chega em novembro, com "Black or White" como primeiro tema divulgado.' },
     { ano: '1992', titulo: 'Heal the World Foundation', texto: 'A canção dá nome a uma fundação dedicada a causas infantis, que apoia projetos nos EUA e no estrangeiro.' },
     { ano: '1993', titulo: 'Super Bowl XXVII', texto: 'A 31 de janeiro, o intervalo do jogo é visto por cerca de 133 milhões de pessoas nos EUA e torna-se um marco da televisão.' },
-    { ano: '1996', titulo: 'Rio de Janeiro', texto: 'A digressão chega ao Brasil. Grava no Rio e em Salvador a versão brasileira de "They Don’t Care About Us", com pessoas das comunidades locais.' },
+    { ano: '1996', titulo: 'Rio de Janeiro', texto: 'A digressão chega ao Brasil. Grava no Rio e em Salvador dois vídeos para "They Don’t Care About Us", com pessoas das comunidades locais e o Olodum.' },
     { ano: '1997', titulo: 'HIStory e a digressão mundial', texto: 'A HIStory World Tour soma 82 concertos em 35 países. "Blood on the Dance Floor" transforma o som em espetáculo de arena.' },
     { ano: '2001', titulo: 'Invincible e os 30 anos', texto: 'Último álbum de material original em vida, seguido do concerto de aniversário no Madison Square Garden.' },
     { ano: '2003', titulo: 'O processo', texto: 'É acusado de abuso de menores e o processo judicial passa a dominar a imprensa mundial, ofuscando a música.' },
@@ -221,7 +221,7 @@ const DADOS = {
     { ano: '2009', titulo: 'Junho de 2009', texto: 'Morre a 25 de junho, aos 50 anos. Em outubro chega aos cinemas o filme dos ensaios, "This Is It".' },
     { ano: '2014', titulo: 'Xscape', texto: 'O catálogo tratado como arquivo reeditável, com instrumentação nova sobre a voz original.' },
     { ano: '2022', titulo: '40 anos de Thriller', texto: '"Beat It" e "Thriller" são convertidos para 4K. Na Broadway, estreia MJ The Musical.' },
-    { ano: '2026', titulo: 'O biopic', texto: 'Estreia o filme biográfico. A vida de Michael Jackson continua a ser recontada.' }
+    { ano: '2026', titulo: 'O biopic', texto: 'Em abril estreia "Michael", de Antoine Fuqua, com Jaafar Jackson no papel principal. A vida de Michael Jackson continua a ser recontada.' }
   ],
 
   /* ---------------------------------------------------------------
