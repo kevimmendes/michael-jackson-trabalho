@@ -1884,6 +1884,37 @@ ul, ol { list-style: none; }
 /* O rodapé ganha espaço para o leitor não tapar os últimos links. */
 .site-footer { padding-bottom: calc(2.5rem + 104px); }
 
+/* ---------------------------------------------------------------------
+   23c. FONTES CITADAS NO TEXTO
+   --------------------------------------------------------------------- */
+.fonte {
+  font-size: 0.74em;
+  letter-spacing: 0.02em;
+  color: var(--ember);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(179, 66, 66, 0.45);
+  white-space: nowrap;
+}
+.fonte::before { content: '['; }
+.fonte::after { content: ']'; }
+.fonte:hover, .fonte:focus-visible {
+  color: var(--red);
+  border-bottom-style: solid;
+}
+.sec--ink .fonte, .site-footer .fonte { color: #d98a8a; }
+.sec--ember .fonte { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.55); }
+.sec--ember .fonte:hover { color: #fff; border-bottom-color: #fff; }
+.footer__fontes {
+  max-width: 54rem;
+  padding-bottom: 1.6rem;
+  font-size: 0.72rem;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.55);
+}
+.footer__fontes a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.footer__fontes a:hover { color: #fff; }
+
 @media (max-width: 520px) {
   .mini { grid-template-columns: 48px minmax(0, 1fr) auto; }
   .mini__deck { width: 48px; height: 48px; }
@@ -1903,6 +1934,9 @@ ul, ol { list-style: none; }
   .hero__scroll, .newsletter, .socials, .video-card__play, .footer__bottom {
     display: none !important;
   }
+  /* No PDF as fontes continuam legíveis a preto. */
+  .fonte { color: #000; border-bottom: none; }
+  .footer__fontes { display: none; }
   .hero { min-height: auto; page-break-after: always; }
   .hero__figure { height: 180mm; }
   .page-hero { padding-top: 12mm; padding-bottom: 10mm; background: #2c1010 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
