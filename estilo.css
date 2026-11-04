@@ -689,6 +689,28 @@ ul, ol { list-style: none; }
   line-height: 1;
 }
 .lens__text { font-size: 0.98rem; color: var(--brown-light); flex: 1; }
+.lens__list {
+  display: grid;
+  gap: 0.5rem;
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--brown-light);
+}
+.lens__list li {
+  position: relative;
+  padding-left: 1.05rem;
+  line-height: 1.35;
+}
+.lens__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
 .lens__link {
   font-size: 0.72rem;
   font-weight: 700;
