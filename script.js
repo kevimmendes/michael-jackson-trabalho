@@ -363,7 +363,7 @@
   });
 
   /* -----------------------------------------------------------------
-     14. LEITOR DE PRÉVIAS (30 s, Apple Music / iTunes)
+     14. MINI LEITOR DE PRÉVIAS (30 s, Apple Music / iTunes)
      ----------------------------------------------------------------- */
   const playerEl = $('[data-player]');
   if (playerEl) {
@@ -385,8 +385,7 @@
     const elBar = $('[data-player-bar]', playerEl);
     const elFill = $('[data-player-fill]', playerEl);
     const elAtual = $('[data-player-current]', playerEl);
-    const elNota = $('[data-player-note]', playerEl);
-    const elLista = $('[data-player-list]', playerEl);
+    const elDuracao = $('[data-player-duration]', playerEl);
     const btnPlay = $('[data-player-play]', playerEl);
     const btnPrev = $('[data-player-prev]', playerEl);
     const btnNext = $('[data-player-next]', playerEl);
@@ -394,6 +393,7 @@
     const cache = new Map();
     let atual = 0;
     let pedido = 0;
+    let estado = '';
 
     function relogio(seg) {
       const s = Math.max(0, Math.floor(seg || 0));
@@ -403,15 +403,15 @@
     function pintar() {
       const f = FAIXAS[atual];
       elTitulo.textContent = f.titulo;
-      elMeta.textContent = f.album + ' · ' + f.ano;
+      elMeta.textContent = estado || (f.album + ' · ' + f.ano);
       elCapa.src = f.capa;
       elCapa.alt = 'Capa de ' + f.album;
-      elAtual.textContent = relogio(audio.currentTime);
-      elFill.style.width = (audio.duration ? (audio.currentTime / audio.duration) * 100 : 0) + '%';
-      elBar.setAttribute('aria-valuenow', String(Math.round(audio.currentTime)));
+      if (elAtual) elAtual.textContent = relogio(audio.currentTime);
+      if (elDuracao) elDuracao.textContent = relogio(audio.duration || 30);
+      if (elFill) elFill.style.width = (audio.duration ? (audio.currentTime / audio.duration) * 100 : 0) + '%';
+      if (elBar) elBar.setAttribute('aria-valuenow', String(Math.round(audio.currentTime)));
       playerEl.classList.toggle('is-playing', !audio.paused);
       btnPlay.setAttribute('aria-label', audio.paused ? 'Reproduzir prévia' : 'Pausar prévia');
-      $$('.player__track', playerEl).forEach((b, i) => b.classList.toggle('is-active', i === atual));
     }
 
     function normalizar(texto) {
@@ -449,7 +449,7 @@
       audio.pause();
       audio.removeAttribute('src');
       audio.load();
-      elNota.textContent = 'Prévia de 30 segundos · Apple Music';
+      estado = '';
       pintar();
     }
 
@@ -459,7 +459,7 @@
       audio.pause();
       audio.removeAttribute('src');
       audio.load();
-      elNota.textContent = 'A carregar prévia…';
+      estado = 'A carregar prévia…';
       pintar();
 
       previa(atual).then(url => {
@@ -468,29 +468,14 @@
         return audio.play();
       }).then(() => {
         if (marca !== pedido) return;
-        elNota.textContent = 'Prévia de 30 segundos · Apple Music';
+        estado = '';
         pintar();
       }).catch(() => {
         if (marca !== pedido) return;
-        elNota.textContent = 'Prévia indisponível. Tenta outra faixa.';
+        estado = 'Prévia indisponível';
         pintar();
       });
     }
-
-    elLista.innerHTML = FAIXAS.map((f, i) =>
-      '<li>' +
-        '<button class="player__track" type="button" data-track="' + i + '" aria-label="Tocar prévia de ' + f.titulo + '">' +
-          '<span class="player__num">' + String(i + 1).padStart(2, '0') + '</span>' +
-          '<span class="player__name">' + f.titulo + '</span>' +
-          '<span class="player__year">' + f.ano + '</span>' +
-        '</button>' +
-      '</li>'
-    ).join('');
-
-    elLista.addEventListener('click', e => {
-      const b = e.target.closest('[data-track]');
-      if (b) tocar(parseInt(b.getAttribute('data-track'), 10));
-    });
 
     btnPlay.addEventListener('click', () => {
       if (!audio.getAttribute('src')) { tocar(atual); return; }
@@ -501,19 +486,21 @@
     btnPrev.addEventListener('click', () => tocar(atual - 1));
     btnNext.addEventListener('click', () => tocar(atual + 1));
 
-    elBar.addEventListener('click', e => {
-      if (!audio.duration) return;
-      const r = elBar.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
-      audio.currentTime = p * audio.duration;
-      pintar();
-    });
+    if (elBar) {
+      elBar.addEventListener('click', e => {
+        if (!audio.duration) return;
+        const r = elBar.getBoundingClientRect();
+        const p = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+        audio.currentTime = p * audio.duration;
+        pintar();
+      });
 
-    elBar.addEventListener('keydown', e => {
-      if (!audio.duration) return;
-      if (e.key === 'ArrowRight') { audio.currentTime = Math.min(audio.duration, audio.currentTime + 3); e.preventDefault(); }
-      if (e.key === 'ArrowLeft') { audio.currentTime = Math.max(0, audio.currentTime - 3); e.preventDefault(); }
-    });
+      elBar.addEventListener('keydown', e => {
+        if (!audio.duration) return;
+        if (e.key === 'ArrowRight') { audio.currentTime = Math.min(audio.duration, audio.currentTime + 3); e.preventDefault(); }
+        if (e.key === 'ArrowLeft') { audio.currentTime = Math.max(0, audio.currentTime - 3); e.preventDefault(); }
+      });
+    }
 
     audio.addEventListener('timeupdate', pintar);
     audio.addEventListener('play', pintar);
@@ -521,7 +508,7 @@
     audio.addEventListener('ended', () => tocar(atual + 1));
     audio.addEventListener('error', () => {
       if (!audio.getAttribute('src')) return;
-      elNota.textContent = 'Prévia indisponível. Tenta outra faixa.';
+      estado = 'Prévia indisponível';
       pintar();
     });
 
