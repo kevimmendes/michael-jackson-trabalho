@@ -72,7 +72,7 @@ const HEROS = {
     <h1 class="h1">A Cultura</h1>
     <p class="page-hero__lead">
       Ninguém cria do nada. Este capítulo segue as raízes: a Motown e o R&amp;B negro
-      americano, a segregação, a televisão, a MTV, o pop global. Depois mostra o
+      americano, a divisão racial, a televisão, a MTV, o pop global. Depois mostra o
       inverso — o momento em que a cultura deixa de ser o que o formou e passa
       a ser aquilo que ele próprio reconfigurou.
     </p>
