@@ -1725,7 +1725,10 @@ ul, ol { list-style: none; }
   grid-template-columns: 56px minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.2rem 0.85rem;
-  width: min(420px, calc(100vw - 1.6rem));
+  /* `100vw` inclui a barra de deslocamento; a percentagem não, o que evita
+     que o leitor saia do ecrã em janelas estreitas no Windows. */
+  width: 420px;
+  max-width: calc(100% - 1.6rem);
   padding: 0.75rem 0.9rem 0.55rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
