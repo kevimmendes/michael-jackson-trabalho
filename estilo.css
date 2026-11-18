@@ -629,6 +629,8 @@ ul, ol { list-style: none; }
 }
 .page-hero__inner { position: relative; z-index: 1; }
 .page-hero .h1 { margin-bottom: 1.4rem; }
+/* Sem parágrafo de introdução, os botões ficam logo abaixo do título. */
+.page-hero .h1 + .page-hero__meta { margin-top: 0; }
 .page-hero__lead {
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   font-weight: 300;
@@ -826,6 +828,37 @@ ul, ol { list-style: none; }
   font-size: 0.98rem;
 }
 .sec--ink .qa__aside { color: rgba(255, 255, 255, 0.68); }
+
+/* Linha de fontes no fim de cada bloco de texto. */
+.qa__fonte {
+  max-width: 72ch;
+  margin-top: 1.3rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.72rem;
+  line-height: 1.8;
+  letter-spacing: 0.015em;
+  color: var(--gray);
+}
+.qa__fonte-tag {
+  display: inline-block;
+  margin-right: 0.4rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.qa__fonte a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.qa__fonte a:hover, .qa__fonte a:focus-visible { color: var(--red); }
+.sec--ink .qa__fonte { border-top-color: var(--line-dark); color: rgba(255, 255, 255, 0.6); }
+.sec--ink .qa__fonte-tag { color: #d98a8a; }
+.sec--ink .qa__fonte a:hover { color: #fff; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; }
 .chip {

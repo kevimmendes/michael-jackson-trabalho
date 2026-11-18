@@ -70,12 +70,6 @@ const HEROS = {
   <div class="container page-hero__inner">
     <span class="eyebrow eyebrow--light">Capítulo B &middot; Lente 02</span>
     <h1 class="h1">A Cultura</h1>
-    <p class="page-hero__lead">
-      Ninguém cria do nada. Este capítulo segue as raízes: a Motown e o R&amp;B negro
-      americano, a divisão racial, a televisão, a MTV, o pop global. Depois mostra o
-      inverso — o momento em que a cultura deixa de ser o que o formou e passa
-      a ser aquilo que ele próprio reconfigurou.
-    </p>
     <div class="page-hero__meta">
       <a class="btn btn--light" href="#q-contexto"><span>Começar a leitura</span><span class="btn__arrow">&darr;</span></a>
       <a class="btn btn--light" href="comunidade.html"><span>Capítulo C: A Comunidade</span><span class="btn__arrow">&rarr;</span></a>
@@ -86,12 +80,6 @@ const HEROS = {
   <div class="container page-hero__inner">
     <span class="eyebrow eyebrow--light">Capítulo C &middot; Lente 03</span>
     <h1 class="h1">A Comunidade</h1>
-    <p class="page-hero__lead">
-      O que acontece quando um artista deixa de ser apenas um produto e passa a
-      ser uma presença? As causas sociais, as pessoas que inspirou, os grupos
-      que tocou, as mentalidades que mudou &mdash; e o modelo que liga a pessoa,
-      a cultura e a comunidade.
-    </p>
     <div class="page-hero__meta">
       <a class="btn btn--light" href="#q-impacto-sociedade"><span>Começar a leitura</span><span class="btn__arrow">&darr;</span></a>
       <a class="btn btn--light" href="legado.html"><span>Capítulo E: O Impacto</span><span class="btn__arrow">&rarr;</span></a>
@@ -102,12 +90,6 @@ const HEROS = {
   <div class="container page-hero__inner">
     <span class="eyebrow eyebrow--light">Capítulo E &middot; O Impacto</span>
     <h1 class="h1">O Legado</h1>
-    <p class="page-hero__lead">
-      O que fica quando a pessoa deixa de estar presente? O impacto imediato,
-      aquilo que foi entregue às gerações seguintes, a influência que continua
-      a actuar hoje &mdash; e as razões por que este trabalho considera que
-      Michael Jackson merece ser estudado.
-    </p>
     <div class="page-hero__meta">
       <a class="btn btn--light" href="#q-impacto"><span>Começar a leitura</span><span class="btn__arrow">&darr;</span></a>
       <a class="btn btn--light" href="conclusao.html"><span>Capítulo F: Conclusão</span><span class="btn__arrow">&rarr;</span></a>
@@ -118,11 +100,6 @@ const HEROS = {
   <div class="container page-hero__inner">
     <span class="eyebrow eyebrow--light">Capítulo F &middot; Conclusão</span>
     <h1 class="h1">Conclusão</h1>
-    <p class="page-hero__lead">
-      Porque escolhemos Michael Jackson, o que aprendemos com ele e o que cada
-      elemento do grupo pensa. A linha contínua de toda a análise, reescrita
-      em última instância.
-    </p>
     <div class="page-hero__meta">
       <a class="btn btn--light" href="#q-porque-escolhemos"><span>Começar a leitura</span><span class="btn__arrow">&darr;</span></a>
       <a class="btn btn--light" href="guiao.html"><span>Voltar ao guião</span><span class="btn__arrow">&rarr;</span></a>
