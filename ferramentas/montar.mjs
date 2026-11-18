@@ -16,25 +16,25 @@ const PARTES = join(RAIZ, 'ferramentas', 'partes');
 const PAGINAS = {
   cultura: {
     titulo: 'A Cultura — Michael Jackson | Trabalho de Grupo',
-    descricao: 'Capítulo B do trabalho: o contexto cultural em que Michael Jackson cresceu, a influência da cultura na sua obra e o que ele contribuiu para a cultura.',
+    descricao: 'Tópico B do trabalho: o contexto cultural em que Michael Jackson cresceu, a influência da cultura na sua obra e o que ele contribuiu para a cultura.',
     atual: 'CULTURA',
     hero: 'cultura'
   },
   comunidade: {
     titulo: 'A Comunidade — Michael Jackson | Trabalho de Grupo',
-    descricao: 'Capítulo C do trabalho: o impacto de Michael Jackson na sociedade, as causas sociais, os grupos inspirados e a relação entre pessoa, cultura e comunidade.',
+    descricao: 'Tópico C do trabalho: o impacto de Michael Jackson na sociedade, as causas sociais, os grupos inspirados e a relação entre pessoa, cultura e comunidade.',
     atual: 'COMUNIDADE',
     hero: 'comunidade'
   },
   legado: {
     titulo: 'O Impacto e o Legado — Michael Jackson | Trabalho de Grupo',
-    descricao: 'Capítulo E do trabalho: o impacto de Michael Jackson, o que deixou às próximas gerações, a influência atual e as razões para o estudar.',
+    descricao: 'Tópico E do trabalho: o impacto de Michael Jackson, o que deixou às próximas gerações, a influência atual e as razões para o estudar.',
     atual: 'LEGADO',
     hero: 'legado'
   },
   conclusao: {
     titulo: 'Conclusão — Michael Jackson | Trabalho de Grupo',
-    descricao: 'Capítulo F do trabalho: porque escolhemos Michael Jackson, o que aprendemos com ele, a linha contínua da análise e a opinião de cada elemento do grupo.',
+    descricao: 'Tópico F do trabalho: porque escolhemos Michael Jackson, o que aprendemos com ele, a linha contínua da análise e a opinião de cada elemento do grupo.',
     atual: 'CONCLUSAO',
     hero: 'conclusao'
   },
@@ -68,37 +68,37 @@ const PAGINAS = {
 const HEROS = {
   cultura: `<section class="page-hero">
   <div class="container page-hero__inner">
-    <span class="eyebrow eyebrow--light">Capítulo B &middot; Lente 02</span>
+    <span class="eyebrow eyebrow--light">Tópico B &middot; Lente 02</span>
     <h1 class="h1">A Cultura</h1>
     <div class="page-hero__meta">
       <a class="btn btn--light" href="#q-contexto"><span>Começar a leitura</span><span class="btn__arrow">&darr;</span></a>
-      <a class="btn btn--light" href="comunidade.html"><span>Capítulo C: A Comunidade</span><span class="btn__arrow">&rarr;</span></a>
+      <a class="btn btn--light" href="comunidade.html"><span>Tópico C: A Comunidade</span><span class="btn__arrow">&rarr;</span></a>
     </div>
   </div>
 </section>`,
   comunidade: `<section class="page-hero">
   <div class="container page-hero__inner">
-    <span class="eyebrow eyebrow--light">Capítulo C &middot; Lente 03</span>
+    <span class="eyebrow eyebrow--light">Tópico C &middot; Lente 03</span>
     <h1 class="h1">A Comunidade</h1>
     <div class="page-hero__meta">
       <a class="btn btn--light" href="#q-impacto-sociedade"><span>Começar a leitura</span><span class="btn__arrow">&darr;</span></a>
-      <a class="btn btn--light" href="legado.html"><span>Capítulo E: O Impacto</span><span class="btn__arrow">&rarr;</span></a>
+      <a class="btn btn--light" href="legado.html"><span>Tópico E: O Impacto</span><span class="btn__arrow">&rarr;</span></a>
     </div>
   </div>
 </section>`,
   legado: `<section class="page-hero">
   <div class="container page-hero__inner">
-    <span class="eyebrow eyebrow--light">Capítulo E &middot; O Impacto</span>
+    <span class="eyebrow eyebrow--light">Tópico E &middot; O Impacto</span>
     <h1 class="h1">O Legado</h1>
     <div class="page-hero__meta">
       <a class="btn btn--light" href="#q-impacto"><span>Começar a leitura</span><span class="btn__arrow">&darr;</span></a>
-      <a class="btn btn--light" href="conclusao.html"><span>Capítulo F: Conclusão</span><span class="btn__arrow">&rarr;</span></a>
+      <a class="btn btn--light" href="conclusao.html"><span>Tópico F: Conclusão</span><span class="btn__arrow">&rarr;</span></a>
     </div>
   </div>
 </section>`,
   conclusao: `<section class="page-hero">
   <div class="container page-hero__inner">
-    <span class="eyebrow eyebrow--light">Capítulo F &middot; Conclusão</span>
+    <span class="eyebrow eyebrow--light">Tópico F &middot; Conclusão</span>
     <h1 class="h1">Conclusão</h1>
     <div class="page-hero__meta">
       <a class="btn btn--light" href="#q-porque-escolhemos"><span>Começar a leitura</span><span class="btn__arrow">&darr;</span></a>

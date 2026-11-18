@@ -1707,6 +1707,11 @@ ul, ol { list-style: none; }
 }
 .toc__list a:hover { color: var(--ember); padding-left: 5px; }
 .toc__list a.is-active { color: var(--ember); font-weight: 600; }
+.toc .btn {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding-inline: 1rem;
+}
 
 /* ---------------------------------------------------------------------
    22. ANIMAÇÕES DE ENTRADA
