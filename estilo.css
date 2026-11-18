@@ -1615,35 +1615,6 @@ ul, ol { list-style: none; }
 .footer__list a:hover { color: #fff; padding-left: 5px; }
 .footer__text { font-size: 0.9rem; max-width: 40ch; }
 
-.newsletter {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line-dark);
-  border-radius: var(--radius);
-  padding: clamp(1.4rem, 3vw, 2.2rem);
-}
-.newsletter__title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
-.newsletter__text { font-size: 0.88rem; margin-bottom: 1.1rem; }
-.newsletter__form { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-.newsletter__input {
-  flex: 1 1 180px;
-  background: transparent;
-  border: 1px solid var(--line-dark);
-  border-radius: 999px;
-  padding: 0.85rem 1.2rem;
-  color: #fff;
-  font-size: 0.9rem;
-  transition: border-color 0.25s;
-}
-.newsletter__input::placeholder { color: rgba(255, 255, 255, 0.4); }
-.newsletter__input:focus { outline: none; border-color: #d98a8a; }
-.newsletter__note { font-size: 0.75rem; margin-top: 0.8rem; color: rgba(255, 255, 255, 0.45); }
-
 .footer__bottom {
   border-top: 1px solid var(--line-dark);
   padding-block: 1.6rem;
@@ -1991,7 +1962,7 @@ ul, ol { list-style: none; }
   :root { --header-h: 0px; }
   body { font-size: 10.5pt; line-height: 1.45; color: #000; background: #fff; }
   .header, .nav, .nav__panel, .nav__toggle, .progress, .modal,
-  .hero__scroll, .newsletter, .socials, .video-card__play, .footer__bottom {
+  .hero__scroll, .socials, .video-card__play, .footer__bottom {
     display: none !important;
   }
   /* No PDF as fontes continuam legíveis a preto. */

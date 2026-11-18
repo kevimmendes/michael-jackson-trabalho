@@ -350,19 +350,6 @@
   }
 
   /* -----------------------------------------------------------------
-     13. NEWSLETTER (demonstração, sem servidor)
-     ----------------------------------------------------------------- */
-  $$('.newsletter__form').forEach(form => {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const nota = form.parentElement.querySelector('.newsletter__note');
-      const input = form.querySelector('input');
-      if (nota) nota.textContent = 'Obrigado! Esta é uma demonstração — a entrega é local e não envia dados.';
-      if (input) input.value = '';
-    });
-  });
-
-  /* -----------------------------------------------------------------
      14. MINI LEITOR DE PRÉVIAS (30 s, Apple Music / iTunes)
      ----------------------------------------------------------------- */
   const playerEl = $('[data-player]');
