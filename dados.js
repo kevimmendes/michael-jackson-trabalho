@@ -232,7 +232,7 @@ const DADOS = {
     { bloco: 'A Pessoa', pergunta: 'Onde nasceu e quando?', resposta: 'A — Identidade e percurso', href: 'biografia.html#q-nascimento' },
     { bloco: 'A Pessoa', pergunta: 'O que ele fazia? A sua área?', resposta: 'A — Identidade e percurso', href: 'biografia.html#q-area' },
     { bloco: 'A Pessoa', pergunta: 'Porque é conhecido?', resposta: 'A — Identidade e percurso', href: 'biografia.html#q-conhecido' },
-    { bloco: 'A Pessoa', pergunta: 'Quais foram os principais momentos da sua vida?', resposta: 'A — Cronologia', href: 'biografia.html#q-momentos' },
+    { bloco: 'A Pessoa', pergunta: 'Quais foram os principais momentos da sua vida?', resposta: 'A — Momentos de vida', href: 'biografia.html#q-momentos' },
     { bloco: 'A Pessoa', pergunta: 'Quais são as suas características?', resposta: 'A — Identidade e percurso', href: 'biografia.html#q-caracteristicas' },
     { bloco: 'A Pessoa', pergunta: 'Que valores defende?', resposta: 'A — Identidade e percurso', href: 'biografia.html#q-valores' },
     { bloco: 'A Pessoa', pergunta: 'Que dificuldades e desafios enfrentou?', resposta: 'A — Identidade e percurso', href: 'biografia.html#q-dificuldades' },
